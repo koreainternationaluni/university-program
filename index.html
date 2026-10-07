@@ -235,16 +235,17 @@ const translations = {
   }
 };
 
-function setLanguage(lang, button){
-  // The English master is ready. Additional language dictionaries can be added here
-  // without changing the page structure.
-  document.querySelectorAll(".lang-btn").forEach(b=>b.classList.remove("active"));
-  button.classList.add("active");
-  const t = translations[lang] || translations.en;
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
-    const key=el.getAttribute("data-i18n");
-    if(t[key] !== undefined) el.innerHTML=t[key];
-  });
+function setLanguage(lang) {
+  const pages = {
+    en: "index.html",
+    si: "si.html",
+    ne: "ne.html",
+    vi: "vi.html",
+    zh: "zh.html",
+    ko: "ko.html"
+  };
+
+  window.location.href = pages[lang];
 }
 </script>
 </body>
